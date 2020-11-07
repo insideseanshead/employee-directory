@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class index extends Component {
+export default class Form extends Component {
     
     state = {
         search: ""
@@ -15,12 +15,24 @@ export default class index extends Component {
         })
     }
 
-    
+    handleFormSubmit = event => {
+        event.preventDefault();
+        this.setState({
+            search: ""
+        })
+    }
     
     render() {
         return (
             <div>
-                
+                <form className="form">
+                    <input value={this.state.search} 
+                    name="search"
+                    onChange={this.handleInputChange}
+                    type="text"
+                    placeholder="Search Employee by last name"
+                    />
+                </form>
             </div>
         )
     }
