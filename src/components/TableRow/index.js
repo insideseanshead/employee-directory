@@ -3,17 +3,31 @@ import "./style.css";
 
 export default function TableRow(props) {
   return (
-    <div>
-      <tr>
-        <th scope="row">1</th>
+    
+    //   <tr>
+    //     {/* <th scope="row">1</th> */}
+    //     <td>
+    //       {props.name}
+    //       {/* {props.name.last} */}
+    //     </td>
+    //     <td>{props.picture}</td>
+    //     <td>{props.phone}</td>
+    //     <td>{props.email}</td>
+    //     <td>{props.dob}</td>
+    //   </tr>
+    <tBody>
+    {props.results.map(res => (
+        <tr>
+        {/* <th scope="row">1</th> */}
         <td>
-          {props.name.first} {props.name.last}
+          {res.name.first} {res.name.last}
         </td>
-        <td>{props.picture}</td>
-        <td>{props.phone}</td>
-        <td>{props.email}</td>
-        <td>{props.dob.date}</td>
+        <td><img src={res.picture.thumbnail} alt={res.name.last} /></td>
+        <td>{res.phone}</td>
+        <td>{res.email}</td>
+        <td>{res.dob.date}</td>
       </tr>
-    </div>
+    ))}
+    </tBody>
   );
 }
